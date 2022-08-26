@@ -1,0 +1,45 @@
+Coefficient Correlation calories-lightly active minutes = var _muX = Calculate(average(average_summations[Average of Calories]))
+var _muY = CALCULATE(average(average_summations[Average of Lighty Active Minutes]))
+var _numerator = SUMX(average_summations,(average_summations[Average of Calories] - _muX)* (average_summations[Average of Lighty Active Minutes] - _muY))
+var _denominator = sqrt(sumx(average_summations, (average_summations[Average of Calories] - _muX)^2)* Sumx(average_summations, (average_summations[Average of Lighty Active Minutes] - _muY)^2))
+
+return
+
+divide(_numerator, _denominator)
+
+coeff correlation calories-sedentary active minutes Ölçü = var _muX = Calculate(average(average_summations[Average of Calories]))
+var _muY = CALCULATE(average(average_summations[Average of Sedentary Minutes]))
+var _numerator = SUMX(average_summations,(average_summations[Average of Calories] - _muX)* (average_summations[Average of Sedentary Minutes] - _muY))
+var _denominator = sqrt(sumx(average_summations, (average_summations[Average of Calories] - _muX)^2)* Sumx(average_summations, (average_summations[Average of Sedentary Minutes] - _muY)^2))
+
+return
+
+divide(_numerator, _denominator)
+
+Coefficient Correlation Calories-Fairly Active Minutes = var _muX = Calculate(average(average_summations[Average of Calories]))
+var _muY = CALCULATE(average(average_summations[Average of Fairly Active Minutes]))
+var _numerator = SUMX(average_summations,(average_summations[Average of Calories] - _muX)* (average_summations[Average of Fairly Active Minutes] - _muY))
+var _denominator = sqrt(sumx(average_summations, (average_summations[Average of Calories] - _muX)^2)* Sumx(average_summations, (average_summations[Average of Fairly Active Minutes] - _muY)^2))
+
+return
+
+divide(_numerator, _denominator)
+
+Coefficient Correlation calories - steps = var _muX = Calculate(average(average_summations[Average of Calories]))
+var _muY = CALCULATE(average(average_summations[Average of Steps]))
+var _numerator = SUMX(average_summations,(average_summations[Average of Calories] - _muX)* (average_summations[Average of Steps] - _muY))
+var _denominator = sqrt(sumx(average_summations, (average_summations[Average of Calories] - _muX)^2)* Sumx(average_summations, (average_summations[Average of Steps] - _muY)^2))
+
+return
+
+divide(_numerator, _denominator)
+
+coeff correlation calories-very active Ölçü = var _muX = Calculate(average(average_summations[Average of Calories]))
+var _muY = CALCULATE(average(average_summations[Average of Very Active Minutes]))
+var _numerator = SUMX(average_summations,(average_summations[Average of Calories] - _muX)* (average_summations[Average of Very Active Minutes] - _muY))
+var _denominator = sqrt(sumx(average_summations, (average_summations[Average of Calories] - _muX)^2)* Sumx(average_summations, (average_summations[Average of Very Active
+Minutes] - _muY)^2))
+
+return
+
+divide(_numerator, _denominator)
