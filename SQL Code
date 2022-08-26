@@ -1,0 +1,44 @@
+use FitnessData
+
+
+ --COMBINING TABLES
+
+select Id, ActivityDay, SedentaryMinutes, LightlyActiveMinutes, FairlyActiveMinutes, VeryActiveMinutes,
+SedentaryActiveDistance, LightActiveDistance, ModeratelyActiveDistance, VeryActiveDistance, Calories
+from dailyIntensities, dailyCalories 
+where dailyIntensities.ActivityDay = dailyCalories.ActivityDay_calories
+and dailyIntensities.Id = dailyCalories.Id_calories
+
+select Id, ActivityDay, SedentaryMinutes, LightlyActiveMinutes, FairlyActiveMinutes,
+VeryActiveMinutes, SedentaryActiveDistance, LightActiveDistance,ModeratelyActiveDistance, 
+VeryActiveDistance, Calories, StepTotal
+from calorie_instens_eq, dailySteps 
+where calorie_instens_eq.Id = dailySteps.Id_steps and calorie_instens_eq.ActivityDay = dailySteps.ActivityDay_steps
+
+
+
+--Summation of Calories
+select Id, 
+sum(calories) as 'Summation of Calories', 
+sum(StepTotal) as 'Summation of Steps',
+sum(Sedentary_min) as 'Summation of Sedentary Minutes', 
+sum(LightlyActive_min) as 'Summatin of Lightly Active Minutes',
+sum(FairlyActive_min) as 'Summation of Fairly Active Minutes', 
+sum(VeryActive_min) as 'Summation of Very Active Minutes'
+from combined_table 
+group by Id order by [Summation of Calories]
+
+select COUNT(ID) 
+From combined_table 
+where ID=1503960366
+
+--Average Values
+select Id, 
+sum(calories)/31 as 'Summation of Calories', 
+sum(StepTotal)/31 as 'Summation of Steps',
+sum(Sedentary_min)/31 as 'Summation of Sedentary Minutes', 
+sum(LightlyActive_min)/31 as 'Summatin of Lightly Active Minutes',
+sum(FairlyActive_min)/31 as 'Summation of Fairly Active Minutes', 
+sum(VeryActive_min)/31 as 'Summation of Very Active Minutes'
+from combined_table 
+group by Id order by [Summation of Calories]
